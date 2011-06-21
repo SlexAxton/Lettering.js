@@ -12,10 +12,10 @@
 */
 (function($){
 	function injector(t, splitter, klass, after) {
-		var a = t.text().split(splitter), inject = '';
-		if (a.length) {
+		var a = t.text().split(splitter), inject = '', len = a.length;
+		if (len) {
 			$(a).each(function(i, item) {
-				inject += '<span class="'+klass+(i+1)+'">'+item+'</span>'+after;
+				inject += '<span class="' + klass + (i+1) + ' r-' + klass + (len-i) + '">'+item+'</span>'+after;
 			});	
 			t.empty().append(inject);
 		}
